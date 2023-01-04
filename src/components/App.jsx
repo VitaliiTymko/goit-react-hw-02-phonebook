@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import shortid from 'shortid';
 import ContactForm from './ContactForm/ContactForm';
 import ContactList from './ContactList/ContactList';
 
@@ -12,8 +13,18 @@ class App extends Component {
     ],
   };
 
-  formSubmit = data => {
+  addContact = data => {
     console.log(data);
+    const contact = {
+      id: shortid.generate(),
+      name: data.name,
+      number: data.number,
+    };
+    console.log(contact);
+
+    this.setState(prevState => ({
+      contacts: [contact, ...prevState.contacts],
+    }));
   };
 
   deliteContact = contactId => {
@@ -27,7 +38,7 @@ class App extends Component {
     return (
       <div>
         <h1>Phonebook</h1>
-        <ContactForm onSubmit={this.formSubmit} />
+        <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
         <ContactList contacts={contacts} onDeliteContact={this.deliteContact} />
       </div>
