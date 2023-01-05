@@ -1,9 +1,15 @@
 import React from 'react';
+import css from './Filter.module.css';
 
 const Filter = ({ value, onChange }) => (
-  <label>
+  <label className={css.formLabel}>
     Find contacts by name{' '}
-    <input type="text" value={value} onChange={onChange} />
+    <input
+      className={css.formInput}
+      type="text"
+      value={value}
+      onChange={onChange}
+    />
   </label>
 );
 

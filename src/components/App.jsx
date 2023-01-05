@@ -61,7 +61,17 @@ class App extends Component {
     const visibleContacts = this.getVisibleContacts();
 
     return (
-      <div>
+      <div
+        style={{
+          // height: '100vh',
+          display: 'flex',
+          flexDirection: 'column',
+          justifyContent: 'center',
+          alignItems: 'center',
+          fontSize: 20,
+          // color: '#010101',
+        }}
+      >
         <h1>Phonebook</h1>
         <ContactForm onSubmit={this.addContact} />
         <h2>Contacts</h2>
